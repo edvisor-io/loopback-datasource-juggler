@@ -190,15 +190,20 @@ describe('include', function () {
           relation: 'posts', scope: {
             fields: ['title'], include: ['author'],
             order: 'title DESC',
-            limit: 2
+            limit: 1
           }
         }
       },
-      limit: 1
+      limit: 2
     }, function(err, passports) {
       if (err) return done(err);
-      passports.length.should.equal(1);
-      passports[0].toJSON().owner.posts.length.should.equal(2);
+      passports.length.should.equal(2);
+      var posts1 = passports[0].toJSON().owner.posts;
+      posts1.length.should.equal(1);
+      posts1[0].title.should.equal('Post C');
+      var posts2 = passports[1].toJSON().owner.posts;
+      posts2.length.should.equal(1);
+      posts2[0].title.should.equal('Post D');
       done();
     });
   });
