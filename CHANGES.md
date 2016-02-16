@@ -1,3 +1,71 @@
+2016-02-05, Version 3.0.0-alpha.2
+=================================
+
+ * Implementtaion of replace (Amir Jafarian)
+
+ * Fix conversion for `updateAttributes` (Amir Jafarian)
+
+ * Prevent constructor to be property name (Jue Hou)
+
+ * Revert "Change "npm test" to call mocha directly" (Miroslav Bajtoš)
+
+ * Change "npm test" to call mocha directly (Hans(Zhenghan) Zhang)
+
+ * Refactor `updateAttributes` (Amir Jafarian)
+
+ * Update README.md (Simon Ho)
+
+ * Add unit test to verify fix for #754 (Tom Kirkpatrick)
+
+ * Update package.json (Janny)
+
+ * Try mocha test (Janny)
+
+ * Implement `findOrCreate` for memory connector (Amir Jafarian)
+
+ * Fix a bug when validation is off for findOrCreate (Amir Jafarian)
+
+ * Use bluebird in utils.js Replace `global.Promise` with `bluebird` (Jue Hou)
+
+ * Fix broken code fencings in the docs (Farid Nouri Neshat)
+
+ * Revert "Correct syntax for should and more" (Simon Ho)
+
+ * Fix test for shouldjs 8.0.2 upgrade (Simon Ho)
+
+ * Upgrade shouldjs to 8.0.2 (Simon Ho)
+
+ * Enhance "persist" hook in DAO.updateOrCreate (Miroslav Bajtoš)
+
+ * Enhance "persisted" hook in DAO.updateAttributes (Miroslav Bajtoš)
+
+ * "loaded" hook in DAO.find: ctx.data, not instance (Miroslav Bajtoš)
+
+ * describe-operation-hooks: add "loaded" hook (Miroslav Bajtoš)
+
+
+2015-12-22, Version 3.0.0-alpha.1
+=================================
+
+ * Start development of 3.0 (Miroslav Bajtoš)
+
+ * Correct syntax for should and more (Amir Jafarian)
+
+
+2015-12-13, Version 2.44.0
+==========================
+
+ * Fix failing test for MongoDB connector (Simon Ho)
+
+ * Make automatic validation optional (Bert Casier)
+
+ * Add refresh script (Simon Ho)
+
+ * Add clean scripts (Simon Ho)
+
+ * Refactor Makefile (Simon Ho)
+
+
 2015-11-27, Version 2.43.0
 ==========================
 
@@ -1441,8 +1509,6 @@
 2014-06-24, Version 2.0.0-beta2
 ===============================
 
- * 2.0.0-beta2 (Miroslav Bajtoš)
-
  * validations: support non-V8 browsers (Miroslav Bajtoš)
 
  * Work around for Date default (Raymond Feng)
@@ -2060,12 +2126,12 @@
  * Update LDL doc for the strict mode (Raymond Feng)
 
 
-2013-09-12, Version strongloopsuite-1.0.0-4
+2013-09-12, Version strongloopsuite-1.0.0-5
 ===========================================
 
 
 
-2013-09-12, Version strongloopsuite-1.0.0-5
+2013-09-12, Version strongloopsuite-1.0.0-4
 ===========================================
 
  * Allow connector to report failure during initialization (Raymond Feng)

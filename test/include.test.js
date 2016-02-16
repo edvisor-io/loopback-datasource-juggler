@@ -102,7 +102,8 @@ describe('include', function () {
       user.id.should.eql(passport.ownerId);
       user.__cachedRelations.should.have.property('posts');
       user.should.have.property('posts');
-      user.toJSON().should.have.property('posts').and.be.an.Array.with.lengthOf(0);
+      user.toJSON().should.have.property('posts').and.be.an.Array().with
+          .length(0);
       done();
     });
   });
@@ -425,6 +426,28 @@ describe('include', function () {
       parts[0].partNumber.should.equal('engine');
       done();
     });
+  });
+
+  it('should save related items separately', function(done) {
+    User.find({
+      include: 'posts'
+    })
+      .then(function(users) {
+        var posts = users[0].posts();
+        posts.should.have.length(3);
+        return users[0].save();
+      })
+      .then(function(updatedUser) {
+        return User.findById(updatedUser.id, {
+          include: 'posts'
+        });
+      })
+      .then(function(user) {
+        var posts = user.posts();
+        posts.should.have.length(3);
+      })
+      .then(done)
+      .catch(done);
   });
 
   describe('performance', function () {
