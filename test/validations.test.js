@@ -545,6 +545,34 @@ describe('validations', function () {
         done();
       })).should.be.false;
     });
+
+    it('should validate passing context to validateAsync', function(done) {
+      var fakeContext = 'Words words words';
+      User.validateAsync('email', function (err, ctx, next) {
+        ctx.should.be.an.Object;
+        ctx.should.equal(fakeContext);
+        process.nextTick(next)
+      });
+      var u = new User({email: 'sure'});
+
+      u.isValid(function(valid) {
+        valid.should.be.true;
+        done();
+      }, {remoteCtx: fakeContext})
+    });
+
+    it('should validate passing context to validateAsync, but not catching ctx', function(done) {
+      var fakeContext = 'Words words words';
+      User.validateAsync('email', function (err, next) {
+        process.nextTick(next)
+      });
+      var u = new User({email: 'sure'});
+
+      u.isValid(function(valid) {
+        valid.should.be.true;
+        done();
+      }, {remoteCtx: fakeContext})
+    });
   });
 
   describe('invalid value formatting', function() {
